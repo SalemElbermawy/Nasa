@@ -12,8 +12,7 @@ from sklearn.metrics import confusion_matrix, classification_report
 import matplotlib.pyplot as plt
 import seaborn as sns
 from io import BytesIO
-time.sleep(0.1)
-st.rerun()
+
 def display_prediction_result(result, model_name, idx):
     """Display individual prediction results with visualization"""
     
