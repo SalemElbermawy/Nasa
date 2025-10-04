@@ -43,7 +43,7 @@ def display_prediction_result(result, model_name, idx):
             yaxis_title="Probability",
             yaxis_tickformat=".0%"
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, )
     
     with col2:
         st.subheader("Confidence Metrics")
@@ -72,7 +72,7 @@ def display_prediction_result(result, model_name, idx):
             }
         ))
         fig.update_layout(height=250)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, )
 
 def display_comparison_analysis():
     """Display comparison between model predictions"""
@@ -115,7 +115,7 @@ def display_comparison_analysis():
             yaxis_tickformat=".0%",
             height=400
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, )
 
 st.set_page_config(
     page_title="Kepler Planet Prediction", 
@@ -292,7 +292,7 @@ icons = {
 
 with st.sidebar:
     st.image("space.jpg", 
-             use_container_width=True)
+             )
     st.title("🌌 Kepler Explorer")
     st.markdown("---")
     
@@ -416,7 +416,6 @@ with tab1:
         edited_df = st.data_editor(
             st.session_state.input_data,
             num_rows="dynamic",
-            use_container_width=True,
             height=300
         )
         
@@ -517,13 +516,13 @@ with tab1:
     col1, col2, col3 = st.columns([1, 1, 1])
 
     with col1:
-        predict_dnn = st.button("🧠 Predict with DNN", type="primary", use_container_width=True)
+        predict_dnn = st.button("🧠 Predict with DNN", type="primary", )
 
     with col2:
-        predict_xgb = st.button("🌳 Predict with XGBoost", type="primary", use_container_width=True)
+        predict_xgb = st.button("🌳 Predict with XGBoost", type="primary", )
 
     with col3:
-        predict_all = st.button("🤖 Ensemble Prediction", type="secondary", use_container_width=True)
+        predict_all = st.button("🤖 Ensemble Prediction", type="secondary", )
 
     # Prediction Logic
     if predict_dnn or predict_all:
@@ -632,7 +631,7 @@ with tab2:
             height=400,
             showlegend=False
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, )
     
     with col2:
         st.subheader("🎯 Precision-Recall Analysis")
@@ -666,7 +665,7 @@ with tab2:
                 showlegend=True,
                 height=400
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, )
     
     # Enhanced Confusion Matrices
     st.subheader("🎭 Confusion Matrices Analysis")
@@ -728,7 +727,7 @@ with tab2:
                 xaxis_title="Feature Importance Score",
                 yaxis_title="Features"
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, )
             
         except Exception as e:
             st.info("Feature importance visualization not available")
@@ -751,7 +750,7 @@ with tab2:
     fig.add_trace(go.Scatter(x=epochs, y=dnn_val_acc, name='Val Acc', line=dict(color='orange')), row=1, col=2)
     
     fig.update_layout(height=400, showlegend=True)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, )
 
 with tab3:
     st.header("🔍 Advanced Data Explorer & Visualization")
@@ -825,7 +824,7 @@ with tab3:
                           labels={feature_choice: xaxis},
                           color_discrete_sequence=['#1f77b4'])
         fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, )
     
     with col2:
         st.subheader("🌍 Planet Size Classification")
@@ -837,7 +836,7 @@ with tab3:
         fig = px.pie(values=counts, names=sizes,
                     title="Distribution of Planet Sizes",
                     color_discrete_sequence=px.colors.sequential.Viridis)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, )
     
     # Advanced Correlation Analysis
     st.subheader("📈 Feature Correlation Matrix")
@@ -851,7 +850,7 @@ with tab3:
                    aspect="auto",
                    labels=dict(color="Correlation Coefficient"))
     fig.update_layout(height=500)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, )
     
     # Scatter plot with multiple dimensions
     st.subheader("🪐 Multi-dimensional Feature Analysis")
@@ -869,7 +868,7 @@ with tab3:
                     title=f"{x_axis.replace('_', ' ').title()} vs {y_axis.replace('_', ' ').title()}",
                     hover_data=list(kepler_data.columns),
                     color_continuous_scale='viridis')
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, )
 
 with tab4:
     st.header("🌠 Kepler Exoplanet Discovery Mission")
@@ -894,7 +893,7 @@ with tab4:
                   title="Kepler Mission Timeline & Discoveries",
                   markers=True)
     fig.update_traces(textposition="top center")
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, )
     
     # Detailed Information
     col1, col2 = st.columns([2, 1])
@@ -954,7 +953,7 @@ with tab4:
     with col2:
         st.image("https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&w=800", 
             caption="Space Telescope - NASA",
-            use_container_width=True)
+            )
 
         
         st.markdown("---")
@@ -988,7 +987,7 @@ with tab4:
         
         st.image("https://cdn.pixabay.com/photo/2016/10/20/18/35/earth-1756274_1280.jpg",
                 caption="Artistic Representation of Exoplanet System",
-                use_container_width=True)
+                )
         
         st.markdown("---")
         

@@ -250,7 +250,7 @@ with tab1:
             'st_rade': 1.1
         }
         
-        if st.button("🎲 Load Sample Data", use_container_width=True):
+        if st.button("🎲 Load Sample Data", ):
             for col in feature_names:
                 if col in sample_data:
                     st.session_state.manual_data.at[0, col] = sample_data[col]
@@ -273,7 +273,7 @@ with tab1:
 
     else:
         st.subheader("📋 Tabular Data Input")
-        edited_df = st.data_editor(st.session_state.table_data, num_rows="dynamic", use_container_width=True, height=400)
+        edited_df = st.data_editor(st.session_state.table_data, num_rows="dynamic",  height=400)
         st.session_state.table_data = edited_df
         current_data = st.session_state.table_data
 
@@ -281,7 +281,7 @@ with tab1:
     st.markdown("---")
     st.header("🎯 AI Analysis")
     
-    if st.button("🌌 Analyze with NASA AI", type="primary", use_container_width=True):
+    if st.button("🌌 Analyze with NASA AI", type="primary", ):
         if not current_data.empty and all(m in models for m in ['xgb', 'scaler', 'label_encoder']):
             with st.spinner("🔭 AI analyzing cosmic patterns..."):
                 try:
@@ -361,7 +361,7 @@ with tab1:
                     font=dict(size=14, color='#2c3e50'),
                     margin=dict(t=0, b=0, l=0, r=0)
                 )
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, )
                 st.markdown('</div>', unsafe_allow_html=True)
             
             with col2:
@@ -414,7 +414,7 @@ with tab1:
                     }
                 ))
                 fig.update_layout(height=300, margin=dict(l=50, r=50, t=80, b=50))
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, )
                 st.markdown('</div>', unsafe_allow_html=True)
         
         for idx, res in enumerate(st.session_state.results_xgb):
@@ -452,7 +452,7 @@ with tab2:
             }
         ))
         fig.update_layout(height=400)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, )
     
     with col2:
         st.subheader("📉 Feature Optimization")
@@ -467,7 +467,7 @@ with tab2:
                     text='Features')
         fig.update_layout(showlegend=False, yaxis_title="Number of Features")
         fig.update_traces(texttemplate='%{text}', textposition='outside')
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, )
         
         st.markdown("""
         <div class="innovation-card">

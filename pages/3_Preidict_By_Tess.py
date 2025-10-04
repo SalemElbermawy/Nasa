@@ -53,7 +53,7 @@ def display_prediction_result(result, model_name, idx):
             paper_bgcolor='rgba(0,0,0,0)',
             font=dict(size=12)
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, )
     
     with col2:
         st.subheader("📈 Confidence Metrics")
@@ -95,7 +95,7 @@ def display_prediction_result(result, model_name, idx):
             }
         ))
         fig.update_layout(height=300, margin=dict(l=50, r=50, t=80, b=50))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, )
 
 st.set_page_config(
     page_title="TOI Planet Classification", 
@@ -250,7 +250,7 @@ icons = {
 
 with st.sidebar:
     st.image("https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&w=800", 
-             use_container_width=True)
+             )
     st.title("🪐 TOI Classifier")
     st.markdown("---")
     
@@ -326,7 +326,7 @@ with tab1:
         
         col1, col2 = st.columns([3, 1])
         with col2:
-            if st.button("🎲 Load Sample Data", use_container_width=True):
+            if st.button("🎲 Load Sample Data", ):
                 for col in numeric_cols:
                     if col in sample_data:
                         st.session_state.manual_data.at[0, col] = sample_data[col]
@@ -356,16 +356,16 @@ with tab1:
         edited_df = st.data_editor(
             st.session_state.table_data,
             num_rows="dynamic",
-            use_container_width=True,
+            
             height=300,
             key="table_editor"
         )
         
-        if st.button("💾 Save Table Data", use_container_width=True):
+        if st.button("💾 Save Table Data", ):
             st.session_state.table_data = edited_df.copy()
             st.success(f"✅ Saved {len(edited_df)} observation(s)!")
         
-        if st.button("🗑️ Clear Table", use_container_width=True):
+        if st.button("🗑️ Clear Table", ):
             st.session_state.table_data = pd.DataFrame(columns=numeric_cols, index=[0]).fillna(0)
             st.success("✅ Table cleared!")
             st.rerun()
@@ -464,7 +464,7 @@ with tab1:
         st.error(f"❌ Preprocessing error: {str(e)}")
         input_transformed = None
 
-    if st.button("🌲 Predict with Random Forest", type="primary", use_container_width=True):
+    if st.button("🌲 Predict with Random Forest", type="primary", ):
         if input_transformed is not None and 'rf' in models:
             with st.spinner("🤖 Random Forest is analyzing your data..."):
                 try:
@@ -535,7 +535,7 @@ with tab2:
             }
         ))
         fig.update_layout(height=350)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, )
     
     with col2:
         st.subheader("🎭 Confusion Matrix")
@@ -587,7 +587,7 @@ with tab2:
                 yaxis_title="Features",
                 showlegend=False
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, )
         except:
             st.info("📊 Feature importance visualization not available")
 

@@ -95,9 +95,9 @@ if 'simulation_running' not in st.session_state:
 # Simulation controls
 col1, col2 = st.columns(2)
 with col1:
-    start = st.button("🚀 Start Simulation", use_container_width=True)
+    start = st.button("🚀 Start Simulation", )
 with col2:
-    stop = st.button("⏹️ Stop Simulation", use_container_width=True)
+    stop = st.button("⏹️ Stop Simulation", )
 
 # Update session state based on button clicks
 if start:
