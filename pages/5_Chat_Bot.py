@@ -37,7 +37,7 @@ st.markdown("""
         background: linear-gradient(135deg, #0a0e2a 0%, #1a1f4b 50%, #0a0e2a 100%);
         color: white;
     }
-    .main-header { text-align: center; color: white; margin-bottom: 30px; padding: 20px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; border: 1px solid rgba(124, 240, 61, 0.3);}
+    .main-header { text-align: center; color: black; margin-bottom: 30px; padding: 20px; background: rgba(0, 0, 0, 0.3); border-radius: 15px; border: 1px solid rgba(124, 240, 61, 0.3);}
     .main-header h1 { font-size: 2.5em; margin-bottom: 10px; background: linear-gradient(45deg, #7cf03d, #3df0a1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 20px rgba(124, 240, 61, 0.5);}
     .main-header p { font-size: 1.1em; opacity: 0.9;}
     .sidebar-content { color: white; padding: 10px;}
@@ -138,3 +138,4 @@ st.markdown("""
     <p>Learn more at <a href='https://www.nasa.gov'>nasa.gov</a></p>
 </div>
 """, unsafe_allow_html=True)
+
