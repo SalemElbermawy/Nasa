@@ -293,6 +293,8 @@ icons = {
 with st.sidebar:
     st.image("space.jpg", 
              )
+    st.image("space.jpg", width=None)
+
     st.title("🌌 Kepler Explorer")
     st.markdown("---")
     
