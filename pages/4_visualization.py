@@ -3,9 +3,7 @@ import streamlit as st
 from pathlib import Path
 import base64
 
-import time
-time.sleep(0.1)
-st.rerun()
+
 st.set_page_config(
     page_title="Kepler Transit Simulator - AI Earth Lens",
     page_icon="🌌",
