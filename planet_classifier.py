@@ -1,4 +1,3 @@
-# save_final_model.py
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -14,7 +13,6 @@ class DataHandler:
         self.data = pd.read_csv(file_path)
 
     def preprocess(self):
-        # === Drop Unnecessary Columns ===
         drop_cols = [
             'pl_name', 'hostname', 'pl_refname', 'sy_refname', 'disp_refname',
             'disc_facility', 'st_refname', 'st_metratio', 'rastr', 'decstr',
@@ -36,7 +34,6 @@ class DataHandler:
         ]
         self.data.drop(columns=drop_cols, axis=1, inplace=True, errors="ignore")
 
-        # === Create 4-Class Mapping ===
         def map_disposition(disp):
             disp_str = str(disp).upper().strip()
             
@@ -54,7 +51,6 @@ class DataHandler:
         print("🎯 Final Class Distribution:")
         print(self.data['disposition_mapped'].value_counts())
         
-        # === Split Features / Target ===
         y = self.data["disposition_mapped"]
         X = self.data.drop(["disposition", "disposition_mapped"], axis=1)
 
@@ -142,13 +138,11 @@ def save_final_model():
     
     y_pred = xgbm.evaluate(X_test, y_test, le)
     
-    # Save everything
     joblib.dump(xgbm.model, 'xgb_model_final.pkl')
     joblib.dump(scaler, 'scaler_final.pkl')
     joblib.dump(le, 'label_encoder_final.pkl')
     joblib.dump(X_train.columns.tolist(), 'feature_names_final.pkl')
     
-    # Save model info with 98% accuracy
     model_info = {
         'accuracy': 0.98,  # We achieved 98%!
         'original_features': 94,
