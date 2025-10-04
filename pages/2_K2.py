@@ -1,4 +1,3 @@
-# app_final_white_sidebar.py
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -8,7 +7,6 @@ import plotly.graph_objects as go
 import os
 import time
 
-# إعداد الصفحة
 st.set_page_config(
     page_title="NASA Exoplanet AI - 98% Accuracy",
     layout="wide",
@@ -16,7 +14,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# CSS مخصص - سايدبار أبيض
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
@@ -73,7 +70,6 @@ st.markdown("""
         box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     }
     
-    /* سايدبار أبيض */
     section[data-testid="stSidebar"] {
         background-color: white !important;
         border-right: 2px solid #f0f0f0;
@@ -127,9 +123,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# باقي الكود يبقى كما هو مع تعديل السايدبار فقط
 
-# تحميل الموديل
 @st.cache_resource(show_spinner=False)
 def load_models():
     models = {}
@@ -173,7 +167,6 @@ descriptions = {
     "REFUTED": "🟣 REFUTED - Officially disproven as a planet"
 }
 
-# تهيئة session state
 if "manual_data" not in st.session_state:
     st.session_state.manual_data = pd.DataFrame(columns=feature_names, index=[0]).fillna(0)
 if "table_data" not in st.session_state:
@@ -181,7 +174,6 @@ if "table_data" not in st.session_state:
 if "results_xgb" not in st.session_state:
     st.session_state.results_xgb = None
 
-# الشريط الجانبي - أبيض مع نصوص ملونة
 with st.sidebar:
     st.markdown("""
     <div style="text-align: center; padding: 20px;">
@@ -229,11 +221,9 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
 
-# الواجهة الرئيسية
 st.markdown('<h1 class="main-header">🌌 NASA Exoplanet Discovery AI</h1>', unsafe_allow_html=True)
 st.markdown('<p class="sub-header">4-Class Classification • 98% Accuracy • Revolutionary Feature Optimization</p>', unsafe_allow_html=True)
 
-# علامات التبويب
 tab1, tab2, tab3 = st.tabs(["🚀 AI Prediction", "📊 Model Insights", "🌟 About Project"])
 
 with tab1:
@@ -314,7 +304,6 @@ with tab1:
         st.markdown("---")
         st.header("📈 Analysis Results")
         
-        # دالة عرض النتائج
         def display_prediction_result(result, model_name, idx):
             pred_class = result["Prediction"]
             confidence = result["Confidence"]
@@ -500,7 +489,6 @@ with tab3:
         
         st.markdown("### 🚀 Breakthrough Achievements")
         
-        # استخدام st.container بدلاً من HTML مباشر
         with st.container():
             st.markdown("""
             <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #1dd1a1; margin: 10px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
