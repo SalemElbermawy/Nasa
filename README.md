@@ -1,6 +1,6 @@
 # 🚀 NASA  - AI Earth Lens
 
-## 🌌 Live Demo
+## 🌌 Demo Link
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mmqeo8dpjwljtmciyuu9s3.streamlit.app/)
 
