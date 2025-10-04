@@ -6,7 +6,9 @@ import joblib
 import plotly.express as px
 import plotly.graph_objects as go
 import os
-
+import time
+time.sleep(0.1)
+st.experimental_rerun()
 # إعداد الصفحة
 st.set_page_config(
     page_title="NASA Exoplanet AI - 98% Accuracy",
